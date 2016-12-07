@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>ProjectA</title>
+        <link href='https://fonts.googleapis.com/css?family=Josefin+Sans:400,700' rel='stylesheet' type='text/css'>
+        <link href="bower_components/bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet"/>
+        <!--<link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons1.css">-->
+        <link href="style.css" rel="stylesheet"/>
+    </head>
+    <body>
+
+        <div class="container">
+            <h1>FASHIONGRAM</h1>
+            <h2>by Xinhe Yu</h2>
+            <div id="searchOrChoose">
+                <div id="search" class="sNc boxClass">
+                        <p>Search Users: <span id="searchSpan"></span></p>
+                        <input type="text" id="searchBox" class="form-control" style="width: 150px;" value="fashion">
+                        <button class="btn btn-default" id="searchButton" style="margin-bottom: 1px;">Search</button>
+                </div>
+                <span id="orSpan"> Or </span>
+                <div id="choose" class="sNc boxClass">
+                    <p>Choose Popular Fashion Bloggers: <span id="chooseSpan"></span></p>
+
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Select
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" id="chooseMenu">
+                            <li><a href="#"><input type="checkbox" value="19769622" checked="true">Chiara Ferragni<span class="id19769622 glyphicon glyphicon-tag"></span></a></li>
+                            <li><a href="#"><input type="checkbox" value="9675477" checked="true">Julie Sariana<span class="id9675477 glyphicon glyphicon-tag"></span></a></li>
+                            <li><a href="#"><input type="checkbox" value="10051934" checked="true">Aimee Song<span class="id10051934 glyphicon glyphicon-tag"></span></a></li>
+                            <li><a href="#"><input type="checkbox" value="7522782" checked="true">Jessica Stein<span class="id7522782 glyphicon glyphicon-tag"></span></a></li>
+                            <li><a href="#"><input type="checkbox" value="6913295" checked="true">Nicole Warne<span class="id6913295 glyphicon glyphicon-tag"></span></a></li>
+                            <li><a href="#"><input type="checkbox" value="4500355" checked="true">Danielle Bernstein<span class="id4500355 glyphicon glyphicon-tag"></span></a></li>
+                            <li><a href="#"><input type="checkbox" value="272220114" checked="true">Leandra Medine<span class="id272220114 glyphicon glyphicon-tag"></span></a></li>
+                            <li><a href="#"><input type="checkbox" value="21978024" checked="true">Shea Marie<span class="id21978024 glyphicon glyphicon-tag"></span></a></li>
+                            <li><a href="#"><input type="checkbox" value="14454619" checked="true">Wendy Nguyen<span class="id14454619 glyphicon glyphicon-tag"></span></a></li>
+                            <li><a href="#"><input type="checkbox" value="8245237" checked="true">Rumi Neely<span class="id8245237 glyphicon glyphicon-tag"></span></a></li>
+                            <li class="ddButton"><button id="selectAll" class="btn btn-default">Select All</button><button id="clear" class="btn btn-default">Clear</button></li>
+                        </ul>
+                    </div>
+
+                    <button class="btn btn-default" id="chooseButton">Show</button>
+                </div>
+                <div id="userInfo" class="sNc hidden">
+
+                </div>
+
+            </div>
+            <div id="countBox" class="hidden boxClass">
+                <p>Numbers of meida: total <span id="countSpan"></span></p>
+                <input type="text" id="countInputBox" style="width: 70px;" value="0" class="form-control">
+                <button class="btn btn-default" id="countButton">Go</button>
+            </div>
+            <div id="resultBox" class="hidden boxClass"></div>
+            <div id="tooltip" class="hidden">
+                <!--<p><span id="userName"></span>:</p>-->
+                <div>
+                    <img id="insImg" src="">
+                </div>
+                <p><br><strong><span id="username"></span>: </strong></p>
+                <p><span id="content"></span></p>
+                <p><br><strong>Location: </strong><span id="location"></span></p>
+                <p><strong>Date: </strong><span id="date"></span></p>
+            </div>
+            <div class="canvas" id="map">
+                <p id="note">Only show media which has location mark</p>
+            </div>
+            <div class="timeline">
+                <div id="timeline1">
+
+                </div>
+
+                <div class="btn-group" role="group" aria-label="...">
+                    <div class="btn-group dropup" role="group">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            2015 Fall-Winter
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" id="_F0">New York Fashion Week | Feb 9 - 16, 2015</a></li>
+                            <li><a href="#" id="_F1">London Fashion Week | Feb 17 - 21, 2015</a>
+                            <li><a href="#" id="_F2">Milan Fashion Week | Feb 22 - 27, 2015</a></li>
+                            <li><a href="#" id="_F3">Paris Fashion Week | Feb 28 - Mar 7, 2015</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="btn-group dropup" role="group">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            2016 Spring-Summer
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" id="_F4">New York Fashion Week | Sep 10 - 17, 2015</a></li>
+                            <li><a href="#" id="_F5">London Fashion Week | Sep 18 - 22, 2015</a>
+                            <li><a href="#" id="_F6">Milan Fashion Week | Sep 23 - 29, 2015</a></li>
+                            <li><a href="#" id="_F7">Paris Fashion Week | Sep 30 - Oct 7, 2015</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="btn-group dropup" role="group">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            2016 Fall-Winter
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" id="_F8">New York Fashion Week | Feb 10 - 18, 2016</a></li>
+                            <li><a href="#" id="_F9">London Fashion Week | Feb 19 - 23, 2016</a>
+                            <li><a href="#" id="_F10">Milan Fashion Week | Feb 24 - 29, 2016</a></li>
+                            <li><a href="#" id="_F11">Paris Fashion Week | Mar 1 - 9, 2016</a></li>
+                        </ul>
+                    </div>
+
+                    <button type="button" class="btn btn-default" id="_show">Show All</button>
+                </div>
+            </div>
+
+
+            <!--signal-->
+            <div id="loading">
+                <div class="Lcontainer">
+
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 0%"></div>
+                    </div>
+                    <p>LOADING</p>
+                </div>
+            </div>
+
+
+        </div>
+
+        <!--Libs-->
+        <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+        <script src="http://d3js.org/topojson.v1.min.js"></script>
+        <script src="lib/queue.min.js"></script>
+        <script src="lib/jquery-2.2.3.min.js"></script>
+        <script src="bower_components/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+
+        <!--Main scripts-->
+        <script src="script/drawDots.js"></script>
+        <script src="script/map.js"></script>
+        <script src="script/brushAxis.js"></script>
+        <script src="script/getData.js"></script>
+        <script src="script/getUserID.js"></script>
+        <script src="script/initialization.js"></script>
+        <script src="script/scriptNewStructure.js"></script>
+
+
+
+
+
+    </body>
+</html>
